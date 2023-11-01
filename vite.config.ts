@@ -7,13 +7,14 @@ import tsconfigPaths from 'vite-tsconfig-paths'
 import checker from 'vite-plugin-checker'
 
 export default defineConfig({
-	publicDir: 'public',
-	server: { port: 3000 },
-	build: {
-		outDir: 'build',
-		rollupOptions: {
-			plugins: [inject({ Buffer: ['buffer', 'Buffer'], process: 'process' })]
-		}
-	},
-	plugins: [react(), eslint(), svgr(), tsconfigPaths(), checker({ typescript: true })]
+  publicDir: 'public',
+  server: { port: 3002 },
+  base: '/snake-game/',
+  build: {
+    outDir: 'build',
+    rollupOptions: {
+      plugins: [inject({ Buffer: ['buffer', 'Buffer'], process: 'process' })],
+    },
+  },
+  plugins: [react(), eslint(), svgr(), tsconfigPaths(), checker({ typescript: true })],
 })
